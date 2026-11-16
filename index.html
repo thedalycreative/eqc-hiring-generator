@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Bootstrap Hiring Ceremony - a theatrical classroom onboarding experience for assigning clients, teams, and briefs."
+    />
+    <title>Bootstrap Hiring Ceremony</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="backdrop backdrop--aurora" aria-hidden="true"></div>
+    <div class="backdrop backdrop--grid" aria-hidden="true"></div>
+    <div class="backdrop backdrop--embers" aria-hidden="true"></div>
+
+    <main class="ceremony-shell">
+      <section class="hero panel panel--wide" aria-labelledby="ceremony-title">
+        <div class="hero__eyebrow">Classified classroom event</div>
+        <div class="hero__title-block">
+          <p class="hero__kicker">Bootstrap Hiring Ceremony</p>
+          <h1 id="ceremony-title">Turn a coding brief into a live event.</h1>
+          <p class="hero__lede">
+            Students arrive as employee cards, get theatrically hired by nonsense companies,
+            and begin with a shared sense of ownership before the timer even starts.
+          </p>
+        </div>
+
+        <div class="hero__actions">
+          <button id="ceremony-start" class="button button--primary" type="button">BEGIN THE BOOTSTRAP HIRING CEREMONY</button>
+          <button id="ceremony-export" class="button button--ghost" type="button">Export Today's Ceremony</button>
+          <button id="ceremony-reset" class="button button--ghost" type="button">Start New Class / Reset</button>
+        </div>
+
+        <div class="status-strip" aria-label="ceremony status">
+          <div class="status-chip">
+            <span class="status-chip__label">Mode</span>
+            <span class="status-chip__value">Roll Call</span>
+          </div>
+          <div class="status-chip">
+            <span class="status-chip__label">Remaining hires</span>
+            <span class="status-chip__value">5</span>
+          </div>
+          <div class="status-chip">
+            <span class="status-chip__label">Timer</span>
+            <span class="status-chip__value">15:00</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="roll-call-title">
+        <div class="panel__header">
+          <div>
+            <p class="panel__eyebrow">Phase 1</p>
+            <h2 id="roll-call-title">Roll Call &amp; Student Arrival</h2>
+          </div>
+          <p class="panel__hint">Add students as they enter class. Drag cards. Click card to cycle emoji.</p>
+        </div>
+
+        <div class="student-add-bar">
+          <form id="student-add-form" class="student-add-form" action="#" onsubmit="return false;">
+            <input
+              type="text"
+              id="student-name-input"
+              class="input input--student"
+              placeholder="Enter student name as they arrive..."
+              aria-label="Student name"
+              autocomplete="off"
+            />
+            <button id="add-student-btn" class="button button--accent" type="submit">+ Add Student</button>
+            <button id="add-sample-btn" class="button button--ghost button--sm" type="button">⚡ Quick Add Sample Class</button>
+          </form>
+        </div>
+
+        <div id="employee-grid" class="employee-grid" role="list" aria-label="employee cards">
+          <!-- Dynamically populated or default sample cards -->
+        </div>
+      </section>
+
+      <section class="panel panel--trailer" aria-labelledby="company-title">
+        <div class="panel__header">
+          <div>
+            <p class="panel__eyebrow">Phase 2</p>
+            <h2 id="company-title">Company Reveal</h2>
+          </div>
+          <p class="panel__hint">A trailer, not a title card.</p>
+        </div>
+
+        <div class="trailer">
+          <div class="trailer__frame">
+            <p class="trailer__tag">🛸 AWAITING REVEAL</p>
+            <p class="trailer__title">Ready for Round 1</p>
+            <p class="trailer__copy">Click 'BEGIN THE BOOTSTRAP HIRING CEREMONY' to launch the first company reveal.</p>
+          </div>
+          <div class="trailer__effects" aria-hidden="true">
+            <span>Smoke</span>
+            <span>Fire</span>
+            <span>Camera shake</span>
+            <span>Confetti</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="layout-split">
+        <section class="panel" aria-labelledby="picker-title">
+          <div class="panel__header">
+            <div>
+              <p class="panel__eyebrow">Selection</p>
+              <h2 id="picker-title">Random picker each round</h2>
+            </div>
+            <p class="panel__hint">Swap the machine, keep the outcome fair.</p>
+          </div>
+
+          <div class="picker-strip" aria-label="picker modes">
+            <button class="picker-pill is-selected" type="button">Claw Machine</button>
+            <button class="picker-pill" type="button">Magic 8 Ball</button>
+            <button class="picker-pill" type="button">Slot Machine</button>
+            <button class="picker-pill" type="button">Wheel of Fortune</button>
+            <button class="picker-pill" type="button">Dartboard</button>
+            <button class="picker-pill" type="button">UFO Abduction</button>
+            <button class="picker-pill" type="button">Mystery Gift</button>
+            <button class="picker-pill" type="button">Mad Scientist</button>
+            <button class="picker-pill" type="button">Pirate Treasure</button>
+            <button class="picker-pill" type="button">Cinema Popcorn</button>
+          </div>
+
+          <div id="picker-stage" class="picker-stage">
+            <div class="picker-stage__core">
+              <div class="picker-stage__label">Remaining pool</div>
+              <div class="emoji-cloud" aria-hidden="true">
+                <span>😀</span>
+                <span>🐲</span>
+                <span>🐸</span>
+                <span>⏰</span>
+                <span>🦄</span>
+              </div>
+              <p class="picker-stage__note">The winner disappears from the next round automatically.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" aria-labelledby="history-title">
+          <div class="panel__header">
+            <div>
+              <p class="panel__eyebrow">Floating history</p>
+              <h2 id="history-title">Tiny draggable windows</h2>
+            </div>
+            <p class="panel__hint">The desktop keeps the story alive.</p>
+          </div>
+
+          <div id="window-stack" class="window-stack">
+            <p class="history-empty-hint">Completed hires will pop up here as draggable desktop windows.</p>
+          </div>
+        </section>
+      </div>
+
+      <section class="panel panel--wide" aria-labelledby="mission-title">
+        <div class="panel__header">
+          <div>
+            <p class="panel__eyebrow">Mission brief</p>
+            <h2 id="mission-title">Prompt.md instructions</h2>
+          </div>
+          <p class="panel__hint">Treat this as the authoritative build order.</p>
+        </div>
+
+        <div class="mission-card">
+          <pre><code>MISSION BRIEF
+
+Create:
+  - index.html
+  - styles.css
+  - README.md
+  - PROMPT.md
+
+Failure is not an option.</code></pre>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="hotkeys-title">
+        <div class="panel__header">
+          <div>
+            <p class="panel__eyebrow">Teacher mode</p>
+            <h2 id="hotkeys-title">Secret keyboard shortcuts</h2>
+          </div>
+          <p class="panel__hint">Hidden actions for the host only.</p>
+        </div>
+
+        <div class="hotkey-grid" aria-label="teacher shortcuts">
+          <div class="hotkey"><kbd>F</kbd><span>Fireworks</span></div>
+          <div class="hotkey"><kbd>C</kbd><span>Confetti</span></div>
+          <div class="hotkey"><kbd>B</kbd><span>Boss music</span></div>
+          <div class="hotkey"><kbd>R</kbd><span>Random explosion</span></div>
+          <div class="hotkey"><kbd>S</kbd><span>Spin wheel again</span></div>
+          <div class="hotkey"><kbd>SPACE</kbd><span>Skip animation</span></div>
+        </div>
+      </section>
+    </main>
+
+    <div class="fx-layer" aria-hidden="true"></div>
+    <div class="toast-host" aria-live="polite" aria-atomic="true"></div>
+
+    <div class="alarm-overlay" hidden>
+      <div class="alarm-overlay__panel">
+        <p class="alarm-overlay__eyebrow">WELCOME</p>
+        <h2>NEW HIRES</h2>
+        <p class="alarm-overlay__countdown">15:00</p>
+        <p class="alarm-overlay__hint">Press SPACE to skip, S to spin, or export when ready.</p>
+        <div class="alarm-overlay__actions">
+          <button class="button button--primary alarm-overlay__action" type="button">Export Today's Ceremony</button>
+          <button id="alarm-overlay-reset" class="button button--ghost" type="button">Start New Class / Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>
